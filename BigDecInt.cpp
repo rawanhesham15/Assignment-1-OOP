@@ -86,3 +86,11 @@ bool BigDecimalInt::operator== (BigDecimalInt b){
 bool BigDecimalInt::operator= (BigDecimalInt b){
     vec = b.vec;
 }
+
+int BigDecimalInt::size(){
+    return vec.size();
+}
+
+char BigDecimalInt::sign(){
+    return s;
+}
