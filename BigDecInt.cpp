@@ -94,3 +94,10 @@ int BigDecimalInt::size(){
 char BigDecimalInt::sign(){
     return s;
 }
+
+ostream& operator<< (ostream& out, BigDecimalInt a){
+    for(int i = 0 ; i < a.vec.size() ; i++){
+        out << a.vec[i];
+    }
+    return out ;
+}
