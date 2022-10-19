@@ -72,3 +72,17 @@ bool BigDecimalInt::operator> (BigDecimalInt b) {
         }
     }
 }
+
+bool BigDecimalInt::operator== (BigDecimalInt b){
+    checkSize(vec, b.vec);
+    for (int i = 0; i < vec.size(); ++i) {
+        if(vec[i] != b.vec[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+bool BigDecimalInt::operator= (BigDecimalInt b){
+    vec = b.vec;
+}
