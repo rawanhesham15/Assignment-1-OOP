@@ -42,3 +42,33 @@ void BigDecimalInt::checkSize(vector <int>& v1,vector <int>& v2){
         }
     }
 }
+
+bool BigDecimalInt::operator> (BigDecimalInt b) {
+    checkSize(vec, b.vec);
+    if (s == '-' && b.s == '+') {
+        return false;
+    }
+    else if (s == '+' && b.s == '-') {
+        return true;
+    }
+    else if(s == '+' && b.s == '+') {
+        for (int j = 0; j < vec.size(); ++j) {
+            if (vec[j] > b.vec[j]) {
+                return true;
+            }
+            else if (vec[j] < b.vec[j]) {
+                return false;
+            }
+        }
+    }
+    if(s == '-' && b.s == '-'){
+        for (int j = 0; j < vec.size(); ++j) {
+            if (vec[j] > b.vec[j]) {
+                return false;
+            }
+            else if (vec[j] < b.vec[j]) {
+                return true;
+            }
+        }
+    }
+}
