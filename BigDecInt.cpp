@@ -1,6 +1,33 @@
 #include "BigDecInt.h"
 
 
+BigDecimalInt::BigDecimalInt (int decInt){
+    vector<int> v;
+    string temp;
+    int x, y, z, c= 1;
+    for ( int i = 0 ; i < c ; i++){
+        y = decInt % 10 ;
+        decInt = decInt / 10 ;
+        temp += char(y) + '0' ;
+        if (decInt == 0 ){
+            break ;
+        }
+        c++ ;
+    }
+    for (int i = 0 ; i < temp.length() ; i++){
+        x = temp[i] - 48  ;
+        v.push_back(x) ;
+    }
+    for (int i = (v.size()-1) ; i > -1 ; i--){
+        vec.push_back(v[i]) ;
+    }
+}
+
+
+
+
+
+
 void BigDecimalInt::setVec (vector <int> v){
     vec = v ;
 }
