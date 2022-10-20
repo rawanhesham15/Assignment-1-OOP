@@ -160,6 +160,77 @@ BigDecimalInt BigDecimalInt::operator+ (BigDecimalInt anotherDec){
         return b1;
     }
 }
+BigDecimalInt BigDecimalInt::operator- (BigDecimalInt anotherDec){
+    BigDecimalInt b1, b2;
+    int a, b, c = 0, i, z = 0;
+    b1.vec = vec;
+    b2.vec = anotherDec.vec;
+    if (s =='+' && anotherDec.s=='+' ){
+        if(b1.vec.size() > b2.vec.size()){
+            checkSize(b1.vec, b2.vec);
+            subtraction(b1.vec,b2.vec);
+            return b1;
+        }
+        else if(b1.vec.size() < b2.vec.size() ){
+            checkSize(b1.vec, b2.vec);
+            cout<<"-";
+            subtraction(b2.vec,b1.vec);
+            return b2;
+        }
+        else{
+            for (int j = 0; j < vec.size(); ++j) {
+                if (b1.vec[j] > b2.vec[j]) {
+                    subtraction(b1.vec,b2.vec);
+                    return b1;
+                }
+                else if (b1.vec[j] < b2.vec[j]){
+                    cout<<"-";
+                    subtraction(b2.vec,b1.vec);
+                    return b2;
+                }
+            }
+            return 0;
+        }
+    }
+    else if (s =='-' && anotherDec.s=='+'){
+        checkSize(b1.vec, b2.vec);
+        addition(b1.vec,b2.vec);
+        cout <<"-";
+        return b1;
+    }
+    else if (s =='+' && anotherDec.s=='-'){
+        checkSize(b1.vec, b2.vec);
+        addition(b1.vec,b2.vec);
+        return b1;
+    }
+    else if(s =='-' && anotherDec.s=='-'){
+        if(b1.vec.size() > b2.vec.size()){
+            checkSize(b1.vec, b2.vec);
+            subtraction(b1.vec,b2.vec);
+            cout<<"-";
+            return b1;
+        }
+        else if(b1.vec.size() < b2.vec.size() ){
+            checkSize(b1.vec, b2.vec);
+            subtraction(b2.vec,b1.vec);
+            return b2;
+        }
+        else{
+            for (int j = 0; j < vec.size(); ++j) {
+                if (b1.vec[j] > b2.vec[j]) {
+                    subtraction(b1.vec,b2.vec);
+                    cout<<"-";
+                    return b1;
+                }
+                else if (b1.vec[j] < b2.vec[j]){
+                    subtraction(b2.vec,b1.vec);
+                    return b2;
+                }
+            }
+            return 0;
+        }
+    }
+}
 
 
 bool BigDecimalInt::operator> (BigDecimalInt b) {
