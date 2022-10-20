@@ -24,6 +24,27 @@ BigDecimalInt::BigDecimalInt (int decInt){
 }
 
 
+BigDecimalInt::BigDecimalInt (string decStr){
+    vector<int> v;
+    int x;
+    for (int i = 0 ; i < decStr.length() ; i++){
+        if(i == 0) {
+            if (!isdigit(decStr[0])) {
+                s = decStr[0];
+            } else {
+                s = '+';
+                x = decStr[i] - 48;
+                v.push_back(x);
+            }
+        }
+        else{
+            x = decStr[i] - 48;
+            v.push_back(x);
+        }
+    }
+    vec = v;
+}
+
 
 
 
