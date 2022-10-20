@@ -231,6 +231,39 @@ BigDecimalInt BigDecimalInt::operator- (BigDecimalInt anotherDec){
         }
     }
 }
+void BigDecimalInt::subtraction(vector <int>& v1,vector <int>& v2){
+    int a, b, c = 0, i, z = 0;
+    for (i = vec.size()-1  ; i > -1 ; i-- ){
+        a = v1[i] - v2[i]  ;
+        if(a<0){
+            b=a+10;
+            v1[i-1]-=1;
+        }
+        else{
+            b=a;
+        }
+        v1[i]=b;
+    }
+}
+
+void BigDecimalInt::addition(vector <int>& v1,vector <int>& v2){
+    int a, b, c = 0, i, z = 0;
+    for (i = vec.size()-1  ; i > -1 ; i-- ){
+        a = v1[i] + v2[i] + c ;
+        if (a > 9){
+            b = a - 10 ;
+            c = 1 ;
+        }
+        else{
+            b = a ;
+            c = 0 ;
+        }
+        v1[i] = b ;
+        if (i==0){
+            v1[i] = a ;
+        }
+    }
+}
 
 
 bool BigDecimalInt::operator> (BigDecimalInt b) {
