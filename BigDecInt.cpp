@@ -191,6 +191,35 @@ bool BigDecimalInt::operator> (BigDecimalInt b) {
         }
     }
 }
+bool BigDecimalInt::operator< (BigDecimalInt b) {
+    checkSize(vec, b.vec);
+    if (s == '-' && b.s == '+') {
+        return true;
+    }
+    else if (s == '+' && b.s == '-') {
+        return false;
+    }
+    else if(s == '+' && b.s == '+') {
+        for (int j = 0; j < vec.size(); ++j) {
+            if (vec[j] > b.vec[j]) {
+                return false;
+            }
+            else if (vec[j] < b.vec[j]) {
+                return true;
+            }
+        }
+    }
+    else if(s == '-' && b.s == '-'){
+        for (int j = 0; j < vec.size(); ++j) {
+            if (vec[j] > b.vec[j]) {
+                return true;
+            }
+            else if (vec[j] < b.vec[j]) {
+                return false;
+            }
+        }
+    }
+}
 
 bool BigDecimalInt::operator== (BigDecimalInt b){
     checkSize(vec, b.vec);
