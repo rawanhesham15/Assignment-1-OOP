@@ -45,7 +45,6 @@ BigDecimalInt::BigDecimalInt (string decStr){
     vec = v;
 }
 
-
 void BigDecimalInt::setVec (vector <int> v){
     vec = v ;
 }
@@ -160,6 +159,8 @@ BigDecimalInt BigDecimalInt::operator+ (BigDecimalInt anotherDec){
         return b1;
     }
 }
+
+
 BigDecimalInt BigDecimalInt::operator- (BigDecimalInt anotherDec){
     BigDecimalInt b1, b2;
     int a, b, c = 0, i, z = 0;
@@ -231,6 +232,7 @@ BigDecimalInt BigDecimalInt::operator- (BigDecimalInt anotherDec){
         }
     }
 }
+
 void BigDecimalInt::subtraction(vector <int>& v1,vector <int>& v2){
     int a, b, c = 0, i, z = 0;
     for (i = vec.size()-1  ; i > -1 ; i-- ){
@@ -295,6 +297,8 @@ bool BigDecimalInt::operator> (BigDecimalInt b) {
         }
     }
 }
+
+
 bool BigDecimalInt::operator< (BigDecimalInt b) {
     checkSize(vec, b.vec);
     if (s == '-' && b.s == '+') {
