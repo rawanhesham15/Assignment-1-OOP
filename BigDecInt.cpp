@@ -96,6 +96,7 @@ BigDecimalInt BigDecimalInt::operator+ (BigDecimalInt anotherDec){
     if (s =='+' && anotherDec.s=='+' ){
         checkSize(b1.vec, b2.vec);
         addition(b1.vec,b2.vec);
+        zeros(b1.vec);
         return b1;
     }
     else if (s =='-' && anotherDec.s=='+'){
@@ -106,11 +107,13 @@ BigDecimalInt BigDecimalInt::operator+ (BigDecimalInt anotherDec){
             {
                 subtraction(b1.vec,b2.vec);
                 cout<<"-";
+                zeros(b1.vec);
                 return b1;
             }
             else if (b1.vec[j] < b2.vec[j])
             {
                 subtraction(b2.vec,b1.vec);
+                zeros(b2.vec);
                 return b2;
             }
         }
@@ -124,12 +127,14 @@ BigDecimalInt BigDecimalInt::operator+ (BigDecimalInt anotherDec){
             if (b1.vec[j] > b2.vec[j])
             {
                 subtraction(b1.vec,b2.vec);
+                zeros(b1.vec);
                 return b1;
             }
             else if (b1.vec[j] < b2.vec[j])
             {
                 cout<<"-";
                 subtraction(b2.vec,b1.vec);
+                zeros(b2.vec);
                 return b2;
             }
        }
@@ -139,6 +144,7 @@ BigDecimalInt BigDecimalInt::operator+ (BigDecimalInt anotherDec){
         checkSize(b1.vec, b2.vec);
         addition(b1.vec,b2.vec);
         cout <<"-";
+        zeros(b1.vec);
         return b1;
     }
 }
@@ -156,12 +162,14 @@ BigDecimalInt BigDecimalInt::operator- (BigDecimalInt anotherDec){
               if (b1.vec[j] > b2.vec[j])
                 {
                     subtraction(b1.vec,b2.vec);
+                    zeros(b1.vec);
                     return b1;
                 }
                 else if (b1.vec[j] < b2.vec[j])
                 {
                     cout<<"-";
                     subtraction(b2.vec,b1.vec);
+                    zeros(b2.vec);
                     return b2;
                 }
             }
@@ -171,11 +179,13 @@ BigDecimalInt BigDecimalInt::operator- (BigDecimalInt anotherDec){
         checkSize(b1.vec, b2.vec);
         addition(b1.vec,b2.vec);
         cout <<"-";
+        zeros(b1.vec);
         return b1;
     }
     else if (s =='+' && anotherDec.s=='-'){
         checkSize(b1.vec, b2.vec);
         addition(b1.vec,b2.vec);
+        zeros(b1.vec);
         return b1;
     }
     else if(s =='-' && anotherDec.s=='-'){
@@ -186,11 +196,13 @@ BigDecimalInt BigDecimalInt::operator- (BigDecimalInt anotherDec){
             {
                 subtraction(b1.vec,b2.vec);               
                 cout<<"-";
+                zeros(b1.vec);
                 return b1;
             }
             else if (b1.vec[j] < b2.vec[j])
             {
                 subtraction(b2.vec,b1.vec);
+                zeros(b2.vec);
                 return b2;
             }
         }
