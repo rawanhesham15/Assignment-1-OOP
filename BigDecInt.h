@@ -55,6 +55,7 @@ public:
 
     void subtraction(vector <int>& v1,vector <int>& v2);
     void addition(vector <int>& v1,vector <int>& v2);
+    void zeros(vector <int>& v1);
 };
 
 #endif //UNTITLED1_BIGDECINT_H
