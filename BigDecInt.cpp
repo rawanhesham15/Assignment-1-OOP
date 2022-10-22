@@ -119,31 +119,21 @@ BigDecimalInt BigDecimalInt::operator+ (BigDecimalInt anotherDec){
     
     
     else if (s =='+' && anotherDec.s=='-'){
-        if(b1.vec.size() > b2.vec.size()){
-            checkSize(b1.vec, b2.vec);
-            subtraction(b1.vec,b2.vec);
-            return b1;
-        }
-        else if(b1.vec.size() < b2.vec.size() ){
-            checkSize(b1.vec, b2.vec);
-            cout<<"-";
-            subtraction(b2.vec,b1.vec);
-            return b2;
-        }
-        else{
-            for (int j = 0; j < vec.size(); ++j) {
-                if (b1.vec[j] > b2.vec[j]) {
-                    subtraction(b1.vec,b2.vec);
-                    return b1;
-                }
-                else if (b1.vec[j] < b2.vec[j]){
-                    cout<<"-";
-                    subtraction(b2.vec,b1.vec);
-                    return b2;
-                }
+       checkSize(b1.vec, b2.vec);
+        for (int j = 0; j < vec.size(); ++j) {
+            if (b1.vec[j] > b2.vec[j])
+            {
+                subtraction(b1.vec,b2.vec);
+                return b1;
             }
-            return 0;
-        }
+            else if (b1.vec[j] < b2.vec[j])
+            {
+                cout<<"-";
+                subtraction(b2.vec,b1.vec);
+                return b2;
+            }
+       }
+        return 0;
     }
     else if(s =='-' && anotherDec.s=='-'){
         checkSize(b1.vec, b2.vec);
@@ -190,22 +180,21 @@ BigDecimalInt BigDecimalInt::operator- (BigDecimalInt anotherDec){
     }
     else if(s =='-' && anotherDec.s=='-'){
        checkSize(b1.vec, b2.vec);
-            for (int j = 0; j < vec.size(); ++j)
+       for (int j = 0; j < vec.size(); ++j)
+           {
+            if (b1.vec[j] > b2.vec[j])
             {
-                if (b1.vec[j] > b2.vec[j])
-                {
-                    subtraction(b1.vec,b2.vec);
-                    cout<<"-";
-                    return b1;
-                }
-                else if (b1.vec[j] < b2.vec[j])
-                {
-                    subtraction(b2.vec,b1.vec);
-                    return b2;
-                }
+                subtraction(b1.vec,b2.vec);               
+                cout<<"-";
+                return b1;
             }
-            return 0;
+            else if (b1.vec[j] < b2.vec[j])
+            {
+                subtraction(b2.vec,b1.vec);
+                return b2;
+            }
         }
+        return 0;
     }
 }
 
