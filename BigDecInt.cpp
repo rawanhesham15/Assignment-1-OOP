@@ -293,6 +293,25 @@ bool BigDecimalInt::operator< (BigDecimalInt b) {
         }
     }
 }
+void zeros(vector <int>& v1)
+    {
+        vector<int> v2;
+
+        for(int i=0;i<v1.size();i++ )
+        {
+           if (v1[i]!=0)
+           {
+               for(int j=i;j<v1.size();j++)
+               {
+                   v2.push_back(v1[j]);
+               }
+               v1=v2;
+               break;
+
+           }
+
+        }
+    }
 
 bool BigDecimalInt::operator== (BigDecimalInt b){
     checkSize(vec, b.vec);
