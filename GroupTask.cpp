@@ -40,7 +40,7 @@ int main() {
     } else if(b < b1) {
         cout << "First number is smaller than Second number\n";
     }
-    cout <<" Operator- = "<<b1 - b<<endl;
+    cout <<" Operator- = "<<b - b1<<endl;
     BigDecimalInt b2 = b1;
     cout << "Assignment operator (new number = second number) = " << b2;
 }
